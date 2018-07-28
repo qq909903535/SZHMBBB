@@ -6,13 +6,19 @@ import App from './App.vue'
 import index from './components/index.vue'
 //引入路由模块
 import VueRouter from 'vue-router'
+// 引入轮播图插件  Element
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
 //使用路由中间件
 Vue.use(VueRouter)
+//使用Element中间件
+Vue.use(ElementUI);
 
 //定义路由规则
 const router = new VueRouter({
   routes :[
+    { path: '/', redirect: '/index' },
     { path: '/index', component: index }
   ],
 })
@@ -22,7 +28,7 @@ import './assets/statics/site/css/style.css';
 
 
 //关闭vue窗口错误提示
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   render: h => h(App),

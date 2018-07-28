@@ -1,3 +1,4 @@
+<!-- 引入jq模块 -->
 <template>
   <div id="app">
     <!-- 首页 -->
@@ -120,14 +121,29 @@
 </template>
 
 <script>
+    import $ from 'jquery';
 
+    export default {
+         name: 'app',
+        mounted:function(){
+            $("#menu2 li a").wrapInner( '<span class="out"></span>' );
+            $("#menu2 li a").each(function() {
+                $( '<span class="over">' +  $(this).text() + '</span>' ).appendTo( this );
+            });
 
-export default {
-  name: 'app'
-}
+            $("#menu2 li a").hover(function() {
+                $(".out",	this).stop().animate({'top':	'48px'},	300); // move down - hide
+                $(".over",	this).stop().animate({'top':	'0px'},		300); // move down - show
+
+            }, function() {
+                $(".out",	this).stop().animate({'top':	'0px'},		300); // move up - show
+                $(".over",	this).stop().animate({'top':	'-48px'},	300); // move up - hide
+            });
+        }
+    }
 
 </script>
 
 <style >
-
+    @import url("./assets/lib/hoverNav/css/style.css");
 </style>
