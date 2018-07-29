@@ -152,7 +152,7 @@
                axios
                 .get('http://47.106.148.205:8899/site/goods/getgoodsgroup')
                 .then(response => {
-                    console.log(response);
+                    // console.log(response);
                     this.goodList = response.data.message;
                 })
                 .catch(error => {

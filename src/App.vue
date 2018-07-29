@@ -145,5 +145,5 @@
 </script>
 
 <style >
-    @import url("./assets/lib/hoverNav/css/style.css");
+    @import url("./assets/statics/lib/hoverNav/css/style.css");
 </style>
